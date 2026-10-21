@@ -111,7 +111,7 @@ function getStatus(deadline) {
     if (remaining < day * 2) return "red";
     if (remaining < day * 7) return "orange";
 
-    return "gray";
+    return "green";
 }
 
 // ============================================
