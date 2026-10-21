@@ -108,8 +108,8 @@ function getStatus(deadline) {
     const day = 24 * 60 * 60 * 1000;
 
     if (remaining <= 0) return "gray";
-    if (remaining < day * 2) return "red";
-    if (remaining < day * 7) return "orange";
+    if (remaining < day * 4) return "red";
+    if (remaining < day * 14) return "orange";
 
     return "green";
 }
@@ -138,7 +138,7 @@ function renderNextDeadline() {
 
     container.innerHTML = `
         <div class="next-label">
-            ${isEvaluation(next) ? "Próxima avaliação" : "Próxima entrega"}
+            ${isEvaluation(next) ? "Próxima avaliação" : "Próximo projeto"}
         </div>
 
         <div class="next-name"></div>
@@ -208,7 +208,27 @@ function renderDeadlines() {
             time.textContent = remaining.text;
 
             info.append(name, dateText);
-            element.append(dot, info, time);
+
+            const deleteButton = document.createElement("button");
+            deleteButton.type = "button";
+            deleteButton.textContent = "Eliminar";
+            deleteButton.className = "delete-button";
+            deleteButton.setAttribute(
+                "aria-label",
+                `Eliminar ${deadline.name}`
+            );
+
+            deleteButton.addEventListener("click", () => {
+                if (!confirm(`Queres eliminar "${deadline.name}"?`)) {
+                    return;
+                }
+
+                deadlines = deadlines.filter(item => item !== deadline);
+                save();
+                update();
+            });
+
+            element.append(dot, info, time, deleteButton);
             section.appendChild(element);
         });
 

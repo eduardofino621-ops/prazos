@@ -318,6 +318,22 @@ input {
     margin-top: 5px;
 }
 
+.delete-button {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 10px;
+    background: #fee2e2;
+    color: #b91c1c;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.delete-button:active {
+    opacity: 0.7;
+}
+
 
 /* IPHONE */
 
