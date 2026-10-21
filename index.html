@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
+    <meta name="theme-color" content="#f5f5f7">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Entregas</title>
+</head>
+
+<body>
+
+<div class="app">
+
+    <header>
+        <div>
+            <p class="subtitle">A tua agenda</p>
+            <h1>Entregas</h1>
+        </div>
+
+        <button id="addButton" class="add-button">+</button>
+    </header>
+
+
+    <!-- Próxima entrega -->
+
+    <section id="nextDeadline" class="next-card">
+        <!-- preenchido pelo JavaScript -->
+    </section>
+
+
+    <!-- Lista -->
+
+    <section>
+
+        <div id="deadlineList"></div>
+
+    </section>
+
+</div>
+
+
+<!-- Janela para adicionar trabalho -->
+
+<div id="modal" class="modal hidden">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2>Novo trabalho</h2>
+
+            <button id="closeModal">×</button>
+        </div>
+
+        <label>
+            Nome
+            <input id="nameInput"
+                   type="text"
+                   placeholder="Ex: IARP Projeto">
+        </label>
+
+        <label>
+            Data
+            <input id="dateInput"
+                   type="date">
+        </label>
+
+        <label>
+            Hora
+            <input id="timeInput"
+                   type="time"
+                   value="23:59">
+        </label>
+
+        <button id="saveButton" class="save-button">
+            Adicionar
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
